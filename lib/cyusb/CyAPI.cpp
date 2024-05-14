@@ -2534,7 +2534,7 @@ bool CCyFX3Device::Ep0VendorCommand(vendorCmdData cmdData)
 
     int maxpkt = ControlEndPt->MaxPktSize;
 
-    long len = cmdData.size;
+    int len = cmdData.size;
 
     /* Handle the case where transfer length is 0 (used to send the Program Entry) */
     if (cmdData.size == 0)
@@ -2542,7 +2542,7 @@ bool CCyFX3Device::Ep0VendorCommand(vendorCmdData cmdData)
     else
     {
         bool bRetCode = false;
-        long Stagelen = 0;
+        int Stagelen = 0;
         int BufIndex = 0;
         while (len > 0)
         {
@@ -2789,10 +2789,10 @@ FX3_FWDWNLOAD_ERROR_CODE CCyFX3Device::DownloadUserIMGtoI2CE2PROM(PUCHAR buffer_
     PUCHAR downloadbuf = new UCHAR[STAGE_SIZE];
 
     int NoOfStage = ((int)fw_size / STAGE_SIZE);
-    long LastStage = ((int)fw_size % STAGE_SIZE);
+    int LastStage = ((int)fw_size % STAGE_SIZE);
     UINT DownloadAddress = 0;
     long FwImagePtr = 0;
-    long StageSize = STAGE_SIZE;
+    int StageSize = STAGE_SIZE;
 
 	//Get the I2C addressing size
     UCHAR ImgI2CSizeByte = buffer_p[2]; // the 2nd byte of the IMG file will tell us the I2EPROM internal addressing.

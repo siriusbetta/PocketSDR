@@ -131,7 +131,7 @@ static DWORD WINAPI event_handler(void *arg)
     sdr_dev_t *dev = (sdr_dev_t *)arg;
     uint8_t *ctx[SDR_MAX_BUFF] = {0};
     OVERLAPPED ov[SDR_MAX_BUFF] = {0};
-    long len = SDR_SIZE_BUFF;
+    int len = SDR_SIZE_BUFF;
     
     // rise process/thread priority
     rise_pri();

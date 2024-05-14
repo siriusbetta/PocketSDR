@@ -142,7 +142,7 @@ int sdr_usb_req(sdr_usb_t *usb, int mode, uint8_t req, uint16_t val,
     
 #ifdef WIN32
     CCyControlEndPoint *ep = usb->ControlEndPt;
-    long len = size;
+    int len = size;
     
     ep->Target    = TGT_DEVICE;
     ep->ReqType   = REQ_VENDOR;
