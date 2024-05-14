@@ -1,0 +1,4 @@
+lib/RTKLIB/
+lib/libfec/
+lib/LDPC-codes/
+*.swp
