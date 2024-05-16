@@ -1,8 +1,12 @@
-lib/RTKLIB/
-lib/libfec/
-lib/LDPC-codes/
+lib/RTKLIB/*
+lib/libfec/*
+lib/LDPC-codes/*
+lib/win32/*
+lib/fftw/
+*.so
 *.swp
 *.o
 *.a
 *.*.*.a
 *.exe
+*.zip
