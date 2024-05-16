@@ -8,9 +8,16 @@ SRC = ../../src
 LIB = ../../lib
 BIN = ../../bin
 
+#$(info $(shell uname -o))
 ifeq ($(OS),Windows_NT)
     INCLUDE = -I$(SRC) -I$(LIB)/cyusb
     OPTIONS = -DWIN32
+
+ifeq ($(shell uname -o),Msys)
+$(info Msys defined)
+	OPTIONS += -DMSYS 
+endif
+	
     LDLIBS = -static $(LIB)/cyusb/CyAPI.a -lsetupapi -lavrt -lwinmm
 else
     INCLUDE = -I$(SRC)

@@ -8,11 +8,14 @@ SRC = ../../src
 LIB = ../../lib
 BIN = ../../bin
 
-INCLUDE = -I$(SRC) -I$(LIB)/RTKLIB/src
+INCLUDE = -I$(SRC) -I$(LIB)/RTKLIB/src -I$(LIB)/fftw
 
 ifeq ($(OS),Windows_NT)
-    LDLIBS = -static $(LIB)/win32/librtk.a $(LIB)/win32/libfec.a $(LIB)/win32/libldpc.a -lfftw3f -lwinmm -lws2_32
+    LDLIBS = -static $(LIB)/win32/librtk.a $(LIB)/win32/libfec.a $(LIB)/win32/libldpc.a $(LIB)/fftw/libfftw3f-3.dll -lwinmm -lws2_32
     OPTIONS = -DWIN32 -DAVX2
+ifeq ($(shell uname -o),Msys)
+    OPTIONS += -DMSYS
+endif 
 else
     LDLIBS = $(LIB)/linux/librtk.a $(LIB)/linux/libfec.a $(LIB)/linux/libldpc.a -lfftw3f -lpthread -lm
     OPTIONS = -DAVX2

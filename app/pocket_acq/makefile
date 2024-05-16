@@ -13,6 +13,9 @@ INCLUDE = -I$(SRC) -I$(LIB)/RTKLIB/src
 ifeq ($(OS),Windows_NT)
     LDLIBS = -static $(LIB)/win32/librtk.a -lfftw3f -lwinmm -lws2_32
     OPTIONS = -DWIN32 -DAVX2
+ifeq ($(shell uname -o),Msys)
+	INCLUDE += -I/mingw64/include
+endif
 else
     LDLIBS = $(LIB)/linux/librtk.a -lfftw3f -lpthread -lm
     OPTIONS = -DAVX2
