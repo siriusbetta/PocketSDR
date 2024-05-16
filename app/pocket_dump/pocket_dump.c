@@ -238,7 +238,7 @@ int main(int argc, char **argv)
     for (i = 0; i < dev->max_ch; i++) {
         if (!files[i] || (raw && i > 0)) continue;
         if (!strcmp(files[i], "-")) {
-#ifdef WIN32 // set binary mode for Windows
+#if defined (WIN32) && !defined (MSYS) // set binary mode for Windows
             _setmode(_fileno(stdout), _O_BINARY);
 #endif
             fp[i] = stdout;

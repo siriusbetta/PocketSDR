@@ -622,7 +622,7 @@ int main(int argc, char **argv)
         }
         fseek(fp, (long)(toff * fs * (fmt || IQ[0] == 1 ? 1 : 2)), SEEK_SET);
     }
-#ifdef WIN32 // set binary mode to stdin for Windows
+#if defined WIN32 && !defined MSYS // set binary mode to stdin for Windows
     else {
         _setmode(_fileno(stdin), _O_BINARY);
     }
