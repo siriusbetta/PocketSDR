@@ -9,5 +9,4 @@ CyAPI.a: CyAPI.o
 
 clean:
 	rm -f *.o
-	rm -f *.a
 
