@@ -1,8 +1,11 @@
 lib/RTKLIB/
 lib/libfec/
 lib/LDPC-codes/
+bin/*
 *.swp
 *.o
+*.so
 *.a
-*.*.*.a
 *.exe
+lib/fftw
+*.zip
